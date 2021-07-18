@@ -2,7 +2,7 @@
 using AdaptiveCode.Interfaces;
 using AdaptiveCode.Repositories;
 
-namespace AdaptiveCode
+namespace NullObjectPattern
 {
     class Program
     {
