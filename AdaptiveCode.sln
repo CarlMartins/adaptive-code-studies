@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveCode", "AdaptiveCode\AdaptiveCode.csproj", "{C8767A7A-0E8E-4007-A276-25AC6FE890A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullPattern", "NullPattern\NullPattern.csproj", "{C8767A7A-0E8E-4007-A276-25AC6FE890A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
