@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullObjectPattern", "NullOb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests1", "UnitTests1\UnitTests1.csproj", "{337CB7AA-A8C1-42E8-99C6-ADB063176667}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComplexTests", "ComplexTests\ComplexTests.csproj", "{B87A4EFF-57DC-4A82-9685-05A4CBBCAA44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{337CB7AA-A8C1-42E8-99C6-ADB063176667}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{337CB7AA-A8C1-42E8-99C6-ADB063176667}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{337CB7AA-A8C1-42E8-99C6-ADB063176667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B87A4EFF-57DC-4A82-9685-05A4CBBCAA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B87A4EFF-57DC-4A82-9685-05A4CBBCAA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B87A4EFF-57DC-4A82-9685-05A4CBBCAA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B87A4EFF-57DC-4A82-9685-05A4CBBCAA44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
