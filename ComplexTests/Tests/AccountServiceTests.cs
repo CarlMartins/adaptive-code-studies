@@ -1,7 +1,9 @@
 using ComplexTests.Entities;
+using ComplexTests.Interfaces;
 using ComplexTests.Repositories;
 using ComplexTests.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace ComplexTests.Tests
 {
@@ -13,8 +15,10 @@ namespace ComplexTests.Tests
         {
             // Arrange
             var account = new Account();
-            var fakeRepository = new FakeAccountRepository(account);
-            var sut = new AccountService(fakeRepository);
+            var mockRepository = new Mock<IAccountRepository>();
+            mockRepository.Setup(repo => repo.GetByName("Trading Account"))
+                .Returns(account);
+            var sut = new AccountService(mockRepository.Object);
 
             // Act
             sut.AddTransactionToAccount("Trading Account", 200m);
