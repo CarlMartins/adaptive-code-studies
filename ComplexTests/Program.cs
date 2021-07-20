@@ -1,5 +1,8 @@
 ﻿using System;
 using ComplexTests.Entities;
+using ComplexTests.Interfaces;
+using ComplexTests.Repositories;
+using ComplexTests.Services;
 
 namespace ComplexTests
 {

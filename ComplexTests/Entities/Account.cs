@@ -6,7 +6,7 @@ namespace ComplexTests.Entities
         public decimal Balance { get; private set; }
         
 
-        public void AddTransaction(decimal amount)
+        public virtual void AddTransaction(decimal amount)
         {
             Balance += amount;
         }

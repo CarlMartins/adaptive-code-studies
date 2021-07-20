@@ -1,3 +1,5 @@
+using System;
+using ComplexTests.Exceptions;
 using ComplexTests.Interfaces;
 
 namespace ComplexTests.Services
@@ -7,13 +9,28 @@ namespace ComplexTests.Services
         private readonly IAccountRepository _repository;
         public AccountService(IAccountRepository repository)
         {
+            if (repository == null)
+            {
+                throw new ArgumentException("A valid account repository must be supplied", 
+                    nameof(repository));
+            }
             _repository = repository;
         }
         
         public void AddTransactionToAccount(string uniqueAccountName, decimal transactionAmount)
         {
             var account = _repository.GetByName(uniqueAccountName);
-            account.AddTransaction(transactionAmount);
+            if (account != null)
+            {
+                try
+                {
+                    account.AddTransaction(transactionAmount);
+                }
+                catch (DomainException)
+                {
+                    throw new ServiceException();
+                }
+            }
         }
     }
 }
