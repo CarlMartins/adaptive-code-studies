@@ -6,5 +6,8 @@ namespace ComplexTests.Exceptions
     {
         public ServiceException() : base()
         { }
+
+        public ServiceException(string message, Exception inner) : base(message, inner)
+        { }
     }
 }

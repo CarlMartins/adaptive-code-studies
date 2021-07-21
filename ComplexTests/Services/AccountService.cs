@@ -26,9 +26,9 @@ namespace ComplexTests.Services
                 {
                     account.AddTransaction(transactionAmount);
                 }
-                catch (DomainException)
+                catch (DomainException domainException)
                 {
-                    throw new ServiceException();
+                    throw new ServiceException("Adding transaction to account failed", domainException);
                 }
             }
         }

@@ -15,6 +15,7 @@ book.
 - [The Null Object Pattern](#the-null-object-pattern)
 - [Unit Tests](#unit-tests)
 - [More Complex Tests](#more-complex-tests)
+- [Writing tests for defect fixes](#writing-tests-for-defect-fixes)
 
 <hr>
 
@@ -107,3 +108,15 @@ it is irrelevant how the method arrived this output. Just test the inputs and ou
 - **Implementing as one atomic unit:** if one changes, so must the other. I may looks
 bad, but following the SOLID principles, some classes will be never altered, so it 
 can be not a problem.
+<br>
+  
+#### Writing tests for defect fixes
+Sometimes you can come across some exception that had been replaced with another one.
+In this case, **DomainException** was replaced by **ServiceException**. It is very 
+hard to understand the real cause of the problem so, to solve this problem, we need 
+to wrap one exception to another.
+<br>
+Creating a custom exception that receives two parameters in it constructor (message and
+inner) its enough to guide the information to the layer we want. We can access the 
+information using **Exception.InnerException**.
+<br>
