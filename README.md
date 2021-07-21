@@ -42,7 +42,7 @@ Every unit test is composed of three distinct parts (following the AAA pattern):
 <br>
   
 When working with TDD (Test-Driven Development), the idea behind is that do not exist any 
-production code, what will cause inevitable an error when running the written tests.
+production code, what will cause an inevitable error when running the written tests.
 <br>
 Next, you need to <i>implement just enough of the SUT (the class you are testing) so
 that test passes</i>.
@@ -108,6 +108,7 @@ it is irrelevant how the method arrived this output. Just test the inputs and ou
 - **Implementing as one atomic unit:** if one changes, so must the other. I may looks
 bad, but following the SOLID principles, some classes will be never altered, so it 
 can be not a problem.
+<<<<<<< HEAD
 <br>
   
 #### Writing tests for defect fixes
@@ -120,3 +121,5 @@ Creating a custom exception that receives two parameters in it constructor (mess
 inner) its enough to guide the information to the layer we want. We can access the 
 information using **Exception.InnerException**.
 <br>
+=======
+>>>>>>> 153b494d93ff9e967f13ce1af20bd82b956f66a4
