@@ -41,7 +41,7 @@ Every unit test is composed of three distinct parts (following the AAA pattern):
 <br>
   
 When working with TDD (Test-Driven Development), the idea behind is that do not exist any 
-production code, what will cause inevitable an error when running the written tests.
+production code, what will cause an inevitable error when running the written tests.
 <br>
 Next, you need to <i>implement just enough of the SUT (the class you are testing) so
 that test passes</i>.
