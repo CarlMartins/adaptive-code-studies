@@ -108,7 +108,6 @@ it is irrelevant how the method arrived this output. Just test the inputs and ou
 - **Implementing as one atomic unit:** if one changes, so must the other. I may looks
 bad, but following the SOLID principles, some classes will be never altered, so it 
 can be not a problem.
-<br>
   
 #### Writing tests for defect fixes
 Sometimes you can come across some exception that had been replaced with another one.
