@@ -12,18 +12,28 @@ namespace ComplexTests.Tests
     [TestClass]
     public class AccountServiceTests
     {
+        private Mock<Account> _mockAccount;
+        private Mock<IAccountRepository> _mockRepository;
+        private AccountService _sut;
+        
+        [TestInitialize]
+        public void Setup()
+        {
+            _mockAccount = new Mock<Account>();
+            _mockRepository = new Mock<IAccountRepository>();
+            _sut = new AccountService(_mockRepository.Object);
+        }
+        
         [TestMethod]
         public void AddingTransactionToAccountDelegatesToAccountInstance()
         {
             // Arrange
             var account = new Account();
-            var mockRepository = new Mock<IAccountRepository>();
-            mockRepository.Setup(repo => repo.GetByName("Trading Account"))
+            _mockRepository.Setup(repo => repo.GetByName("Trading Account"))
                 .Returns(account);
-            var sut = new AccountService(mockRepository.Object);
 
             // Act
-            sut.AddTransactionToAccount("Trading Account", 200m);
+            _sut.AddTransactionToAccount("Trading Account", 200m);
 
             // Assert
             Assert.AreEqual(200m, account.Balance);
@@ -45,11 +55,9 @@ namespace ComplexTests.Tests
         public void DoNotThrowWhenAccountIsNotFound()
         {
             // Arrange
-            var mockRepository = new Mock<IAccountRepository>();
-            var sut = new AccountService(mockRepository.Object);
-            
+
             // Act
-            sut.AddTransactionToAccount("Trading Account", 100m);
+            _sut.AddTransactionToAccount("Trading Account", 100m);
 
             // Assert
         }
@@ -58,18 +66,15 @@ namespace ComplexTests.Tests
         public void AccountExceptionsAreWrappedInThrowServiceException()
         {
             // Arrange
-            var account = new Mock<Account>();
-            account.Setup(a => a.AddTransaction(100m))
+            _mockAccount.Setup(a => a.AddTransaction(100m))
                 .Throws<DomainException>();
-            var mockRepository = new Mock<IAccountRepository>();
-            mockRepository.Setup(r => r.GetByName("Trading Account"))
-                .Returns(account.Object);
-            var sut = new AccountService(mockRepository.Object);
+            _mockRepository.Setup(r => r.GetByName("Trading Account"))
+                .Returns(_mockAccount.Object);
 
             // Act
             try
             {
-                sut.AddTransactionToAccount("Trading Account", 100m);
+                _sut.AddTransactionToAccount("Trading Account", 100m);
             }
             catch (ServiceException serviceException)
             {

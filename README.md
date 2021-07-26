@@ -16,6 +16,7 @@ book.
 - [Unit Tests](#unit-tests)
 - [More Complex Tests](#more-complex-tests)
 - [Writing tests for defect fixes](#writing-tests-for-defect-fixes)
+- [Test Setup](#test-setup)
 
 <hr>
 
@@ -118,4 +119,10 @@ to wrap one exception to another.
 Creating a custom exception that receives two parameters in it constructor (message and
 inner) its enough to guide the information to the layer we want. We can access the 
 information using **Exception.InnerException**.
+<br>
+
+#### Test Setup
+Instead of initialize mock objects for every unit test we make, we can create a 
+method that initialize our mock objects. This method needs **[TestInitialize]** tag 
+(MSTest). 
 <br>
