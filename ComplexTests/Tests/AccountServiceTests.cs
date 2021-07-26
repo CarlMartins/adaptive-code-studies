@@ -1,4 +1,5 @@
 using System;
+using ComplexTests.Builders;
 using ComplexTests.Entities;
 using ComplexTests.Exceptions;
 using ComplexTests.Interfaces;
@@ -12,6 +13,8 @@ namespace ComplexTests.Tests
     [TestClass]
     public class AccountServiceTests
     {
+        private AccountServiceBuilder _accountServiceBuilder;
+
         private Mock<Account> _mockAccount;
         private Mock<IAccountRepository> _mockRepository;
         private AccountService _sut;
@@ -22,21 +25,25 @@ namespace ComplexTests.Tests
             _mockAccount = new Mock<Account>();
             _mockRepository = new Mock<IAccountRepository>();
             _sut = new AccountService(_mockRepository.Object);
+
+            _accountServiceBuilder = new AccountServiceBuilder();
         }
         
+        // WITH BUILDER
         [TestMethod]
         public void AddingTransactionToAccountDelegatesToAccountInstance()
         {
             // Arrange
-            var account = new Account();
-            _mockRepository.Setup(repo => repo.GetByName("Trading Account"))
-                .Returns(account);
+            var sut = _accountServiceBuilder
+                .WithAccountCalled("Trading Account")
+                .AddTransactionOfValue(200m)
+                .Build();
 
             // Act
-            _sut.AddTransactionToAccount("Trading Account", 200m);
+            sut.AddTransactionToAccount("Trading Account", 200m);
 
             // Assert
-            Assert.AreEqual(200m, account.Balance);
+            _accountServiceBuilder.MockAccount.Verify();
         }
 
         [TestMethod]

@@ -17,6 +17,7 @@ book.
 - [More Complex Tests](#more-complex-tests)
 - [Writing tests for defect fixes](#writing-tests-for-defect-fixes)
 - [Test Setup](#test-setup)
+- [The Builder Pattern](#the-builder-pattern)
 
 <hr>
 
@@ -126,3 +127,13 @@ Instead of initialize mock objects for every unit test we make, we can create a
 method that initialize our mock objects. This method needs **[TestInitialize]** tag 
 (MSTest). 
 <br>
+
+#### The Builder Pattern
+This pattern is useful for encapsulating and abstracting the creation of objects. If an object
+can be configured in multiple ways across multiple dimensions, this pattern can simplify the
+creation of code and clarify the intent.
+<br>
+The idea is to create a ServiceBuilder class that will have mock properties. We can use this
+class to build our **Assert** when coding tests. It is important to mention that this class
+is designed with fluent interface, so the methods inside returns the own builder and can be
+chained.
