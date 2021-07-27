@@ -18,6 +18,7 @@ book.
 - [Writing tests for defect fixes](#writing-tests-for-defect-fixes)
 - [Test Setup](#test-setup)
 - [The Builder Pattern](#the-builder-pattern)
+- [Test-Driven Design](#test-driven-design)
 
 <hr>
 
@@ -137,3 +138,17 @@ The idea is to create a ServiceBuilder class that will have mock properties. We 
 class to build our **Assert** when coding tests. It is important to mention that this class
 is designed with fluent interface, so the methods inside returns the own builder and can be
 chained.
+
+#### Test-Driven Design
+Most applicable when the production code is unknown and can emerge from red, green refactor
+process of writing unit tests.
+**Rules:**
+- Write just one test. Needs to be the simplistic as possible, enough just to point in the
+direction of the solution.
+- Run the test to make sure it fails.
+- Make the written test pass by writing the least amount of implementation code in the test
+method.
+- Refactor to reduce duplication or improve design. Only introduce new abstractions when
+they will help to improve the design of the code.
+  
+This way of writing code prevents over-engineering.
