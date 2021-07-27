@@ -152,3 +152,22 @@ method.
 they will help to improve the design of the code.
   
 This way of writing code prevents over-engineering.
+
+#### The testing pyramid
+![The testing pyramid](https://i.imgur.com/GFtZ2an.jpg)
+<br> <br>
+**Above the top:** Manual testing. There should be few of these,
+because they need manual intervention, which is costly and time-consuming.
+<br>
+**The top:** Acceptance tests. Intended to replicate the interaction of a user and assert
+against expectations. There should be only a few of these too, because they are large and
+hard to maintain.
+<br>
+**The middle:** Component-level integration tests. Could take the form of API tests which
+the service is treated as a black box. It means for a variety of data inputs, the tests
+assert that the correct responses are returned.
+<br>
+**The bottom:** Unit tests.
+<br><br>
+The idea of the pyramid is to illustrate that one layer should be relatively smaller or larger
+than another.
