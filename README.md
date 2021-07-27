@@ -19,6 +19,7 @@ book.
 - [Test Setup](#test-setup)
 - [The Builder Pattern](#the-builder-pattern)
 - [Test-Driven Design](#test-driven-design)
+- [Testing for Prevention and Cure](#testing-for-prevention-and-cure)
 
 <hr>
 
@@ -171,3 +172,31 @@ assert that the correct responses are returned.
 <br><br>
 The idea of the pyramid is to illustrate that one layer should be relatively smaller or larger
 than another.
+
+#### Testing for Prevention and Cure
+Testing gives you confidence that your application works properly, but comes with a price:
+time and effort. 
+<br>
+If you efforts do not generate enough confidence, they are too costly.
+<br>
+Every project have a target confidence that calibrates their tolerance for failure.
+One option to reduce the effort and increasing the confidence is deploying to multiple
+environments for testing.
+<br><br>
+![Multiple environments deploy](https://i.imgur.com/Q8s4PPr.png)
+<br><br>
+Each phase of the process gives you more confidence about the software.
+<br>
+We could also take a shortcut and go directly to the live phase without fear of failing,
+that because we should never fear failure, failure is better teacher than success.
+<br>
+When talking about time in development, there are two types: Mean Time Before Failure(MTBF) and
+Mean Time to Recovery(MTTR).
+<br>
+If you need a system with high level of confidence, like a pacemaker or bank security, MTBF is 
+the right choice.
+<br>
+However, MTTR not only allow failures but it prepares for it.
+<br>
+MTTR systems will fail more, but the recovery time is much faster. It makes possible to 
+innovate faster too.
