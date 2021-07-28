@@ -20,6 +20,7 @@ book.
 - [The Builder Pattern](#the-builder-pattern)
 - [Test-Driven Design](#test-driven-design)
 - [Testing for Prevention and Cure](#testing-for-prevention-and-cure)
+- [Refactoring](#refactoring)
 
 <hr>
 
@@ -200,3 +201,11 @@ However, MTTR not only allow failures but it prepares for it.
 <br>
 MTTR systems will fail more, but the recovery time is much faster. It makes possible to 
 innovate faster too.
+
+#### Refactoring
+Even when using the TDD approach to create code, sometimes this code might not be as organized
+or understandable as it could be. The solution for this kind of problem is refactoring.
+<br>
+Refactoring is the process of improving the design of existing code, that goes from simply rename a
+variable,refactor an entire class, or even bigger changes.
+<br>
