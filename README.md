@@ -210,3 +210,7 @@ or understandable as it could be. The solution for this kind of problem is refac
 Refactoring is the process of improving the design of existing code, that goes from simply rename a
 variable,refactor an entire class, or even bigger changes.
 <br>
+
+#### Replacing "magic numbers" with constants
+Instead of using numbers without context like ``something / 20``, a better approach is replace
+this number by a constant variable with a well descriptive name like ``something / constantVariable``.
