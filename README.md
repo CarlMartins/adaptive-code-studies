@@ -12,15 +12,16 @@ This repository was made with the intention of documenting my studies using the
 book.
 
 ### Summary
-- [The Null Object Pattern](#the-null-object-pattern)
-- [Unit Tests](#unit-tests)
-- [More Complex Tests](#more-complex-tests)
-- [Writing tests for defect fixes](#writing-tests-for-defect-fixes)
-- [Test Setup](#test-setup)
-- [The Builder Pattern](#the-builder-pattern)
-- [Test-Driven Design](#test-driven-design)
-- [Testing for Prevention and Cure](#testing-for-prevention-and-cure)
-- [Refactoring](#refactoring)
+- PART II
+    - [The Null Object Pattern](#the-null-object-pattern)
+    - [Unit Tests](#unit-tests)
+    - [More Complex Tests](#more-complex-tests)
+    - [Writing tests for defect fixes](#writing-tests-for-defect-fixes)
+    - [Test Setup](#test-setup)
+    - [The Builder Pattern](#the-builder-pattern)
+    - [Test-Driven Design](#test-driven-design)
+    - [Testing for Prevention and Cure](#testing-for-prevention-and-cure)
+    - [Refactoring](#refactoring)
 
 <hr>
 
