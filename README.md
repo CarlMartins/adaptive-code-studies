@@ -13,8 +13,9 @@ book.
 
 ### Summary
 - PART II
-  - [Tests](#tests)
+  - [Interfaces and Design Patterns](#interfaces-and-design-patterns)
     - [The Null Object Pattern](#the-null-object-pattern)
+  - [Tests](#tests)
     - [Unit Tests](#unit-tests)
     - [More Complex Tests](#more-complex-tests)
     - [Writing tests for defect fixes](#writing-tests-for-defect-fixes)
@@ -27,10 +28,7 @@ book.
 
 <hr>
 
-## Tests
-Software quality is not limited to the quality of the code and how adaptive it is to change. It is also a
-measure of how accurately the software fulfills its requirements. Testing is the umbrella of practices
-that can be used to ensure this kind of software quality.
+## Interfaces and Design Patterns
 
 ### The Null Object Pattern
 
@@ -44,6 +42,11 @@ subclass that implements the same interface.
 <br>
 All methods implemented by this special subclass should do the closest to nothing
 as possible.
+
+## Tests
+Software quality is not limited to the quality of the code and how adaptive it is to change. It is also a
+measure of how accurately the software fulfills its requirements. Testing is the umbrella of practices
+that can be used to ensure this kind of software quality.
 
 ### Unit Tests
 Testing is a way of guarantee that a function have its expected behavior.
