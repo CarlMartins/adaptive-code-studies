@@ -13,6 +13,7 @@ book.
 
 ### Summary
 - PART II
+  - [Tests](#tests)
     - [The Null Object Pattern](#the-null-object-pattern)
     - [Unit Tests](#unit-tests)
     - [More Complex Tests](#more-complex-tests)
@@ -21,11 +22,17 @@ book.
     - [The Builder Pattern](#the-builder-pattern)
     - [Test-Driven Design](#test-driven-design)
     - [Testing for Prevention and Cure](#testing-for-prevention-and-cure)
-    - [Refactoring](#refactoring)
+  - [Refactoring](#refactoring)
+    - [Replacing "magic numbers" with constants](#replacing-magic-numbers-with-constants)
 
 <hr>
 
-#### The Null Object Pattern
+## Tests
+Software quality is not limited to the quality of the code and how adaptive it is to change. It is also a
+measure of how accurately the software fulfills its requirements. Testing is the umbrella of practices
+that can be used to ensure this kind of software quality.
+
+### The Null Object Pattern
 
 The idea behind the Null Object Pattern is to avoid throwing
 a NullReferenceException and rewrite tons of null object-checking code.
@@ -38,7 +45,7 @@ subclass that implements the same interface.
 All methods implemented by this special subclass should do the closest to nothing
 as possible.
 
-#### Unit Tests
+### Unit Tests
 Testing is a way of guarantee that a function have its expected behavior.
 <br>
 Every unit test is composed of three distinct parts (following the AAA pattern):
@@ -58,7 +65,7 @@ Finally, you are able to refactor your SUT to pass all the new tests created.
 Writing tests before the real implementation and following the described steps, prevents
 over-engineering the solution and also prevents breaking existing functionalities.
 
-#### More Complex Tests
+### More Complex Tests
 When working with real applications, most of the time we well need some external 
 tools like databases, web services or even more logical layers.
 <br>
@@ -115,7 +122,7 @@ it is irrelevant how the method arrived this output. Just test the inputs and ou
 bad, but following the SOLID principles, some classes will be never altered, so it 
 can be not a problem.
   
-#### Writing tests for defect fixes
+### Writing tests for defect fixes
 Sometimes you can come across some exception that had been replaced with another one.
 In this case, **DomainException** was replaced by **ServiceException**. It is very 
 hard to understand the real cause of the problem so, to solve this problem, we need 
@@ -126,13 +133,13 @@ inner) its enough to guide the information to the layer we want. We can access t
 information using **Exception.InnerException**.
 <br>
 
-#### Test Setup
+### Test Setup
 Instead of initialize mock objects for every unit test we make, we can create a 
 method that initialize our mock objects. This method needs **[TestInitialize]** tag 
 (MSTest). 
 <br>
 
-#### The Builder Pattern
+### The Builder Pattern
 This pattern is useful for encapsulating and abstracting the creation of objects. If an object
 can be configured in multiple ways across multiple dimensions, this pattern can simplify the
 creation of code and clarify the intent.
@@ -142,7 +149,7 @@ class to build our **Assert** when coding tests. It is important to mention that
 is designed with fluent interface, so the methods inside returns the own builder and can be
 chained.
 
-#### Test-Driven Design
+### Test-Driven Design
 Most applicable when the production code is unknown and can emerge from red, green refactor
 process of writing unit tests.
 **Rules:**
@@ -156,7 +163,7 @@ they will help to improve the design of the code.
   
 This way of writing code prevents over-engineering.
 
-#### The testing pyramid
+### The testing pyramid
 ![The testing pyramid](https://i.imgur.com/GFtZ2an.jpg)
 <br> <br>
 **Above the top:** Manual testing. There should be few of these,
@@ -175,7 +182,7 @@ assert that the correct responses are returned.
 The idea of the pyramid is to illustrate that one layer should be relatively smaller or larger
 than another.
 
-#### Testing for Prevention and Cure
+### Testing for Prevention and Cure
 Testing gives you confidence that your application works properly, but comes with a price:
 time and effort. 
 <br>
@@ -203,7 +210,7 @@ However, MTTR not only allow failures but it prepares for it.
 MTTR systems will fail more, but the recovery time is much faster. It makes possible to 
 innovate faster too.
 
-#### Refactoring
+## Refactoring
 Even when using the TDD approach to create code, sometimes this code might not be as organized
 or understandable as it could be. The solution for this kind of problem is refactoring.
 <br>
@@ -211,6 +218,6 @@ Refactoring is the process of improving the design of existing code, that goes f
 variable,refactor an entire class, or even bigger changes.
 <br>
 
-#### Replacing "magic numbers" with constants
+### Replacing "magic numbers" with constants
 Instead of using numbers without context like ``something / 20``, a better approach is replace
 this number by a constant variable with a well descriptive name like ``something / constantVariable``.
