@@ -224,3 +224,12 @@ variable,refactor an entire class, or even bigger changes.
 ### Replacing "magic numbers" with constants
 Instead of using numbers without context like ``something / 20``, a better approach is replace
 this number by a constant variable with a well descriptive name like ``something / constantVariable``.
+
+<hr>
+
+<p align="center">
+    Made by
+    <a href="https://github.com/CarlMartins">Carlos Martins</a>
+    -
+    <a href="https://www.linkedin.com/in/CarlosMartinsOliveira">LinkedIn</a>
+</p>
