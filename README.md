@@ -3,7 +3,7 @@
 <p align="center">
   <a href=#about>About</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href=#summary>Summary</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href=#developers>Developers</a>
+  <a href=#student>Student</a>
 </p>
 
 ### About
@@ -227,9 +227,8 @@ this number by a constant variable with a well descriptive name like ``something
 
 <hr>
 
-<p align="center">
-    Made by
-    <a href="https://github.com/CarlMartins">Carlos Martins</a>
-    -
-    <a href="https://www.linkedin.com/in/CarlosMartinsOliveira">LinkedIn</a>
-</p>
+## Student
+
+[Carlos Martins](https://github.com/CarlMartins)
+<br>
+[Linkedin](https://www.linkedin.com/in/CarlosMartinsOliveira)
