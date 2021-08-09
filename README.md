@@ -14,6 +14,8 @@ book.
 ### Summary
 - PART II
   - [Interfaces and Design Patterns](#interfaces-and-design-patterns)
+    - [What is an Interface](#what-is-an-interface)
+    - [Polymorphism](#polymorphism)
     - [The Null Object Pattern](#the-null-object-pattern)
   - [Tests](#tests)
     - [Unit Tests](#unit-tests)
@@ -29,6 +31,16 @@ book.
 <hr>
 
 ## Interfaces and Design Patterns
+
+### What is an Interface
+An interface defines the behavior that class has, but not how this behavior is implemented, it means it will have only the signature of the methods, but its logic will be written in the class that implements that interface.
+
+### Polymorphism
+The ability to use an object of one type and have it implicitly act as if it were of a different type is called polymorphism.
+<br>
+When a class implements an interface, the client code doesn't need to know the implementation details of that specific class. All it needs is to use their functionalities.
+<br>
+For example, if the classes ``Motorcycle, Boat and Car`` implements a ``IVehicle`` interface, the client code can refer to the ``IVehicle`` interface and treat all concrete types as if they were the same. The implementation of how a boat accelerates compared to a car is irrelevant to the client.
 
 ### The Null Object Pattern
 
