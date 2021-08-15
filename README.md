@@ -27,6 +27,7 @@ book.
     - [Testing for Prevention and Cure](#testing-for-prevention-and-cure)
   - [Refactoring](#refactoring)
     - [Replacing "magic numbers" with constants](#replacing-magic-numbers-with-constants)
+    - [Replacing a conditional expression with polymorphism](#replacing-a-conditional-expression-with-polymorphism)
 
 <hr>
 
@@ -234,8 +235,20 @@ variable,refactor an entire class, or even bigger changes.
 <br>
 
 ### Replacing "magic numbers" with constants
-Instead of using numbers without context like ``something / 20``, a better approach is replace
-this number by a constant variable with a well descriptive name like ``something / constantVariable``.
+Instead of using numbers without context like ``something / 20``, a better approach is replace this number by a constant variable with a well descriptive name like ``something / constantVariable``.
+
+### Replacing a conditional expression with polymorphism
+Using conditional expressions like ``if/else`` and ``switch`` is problematic for two reasons: affects readability of code and introduces a maintenance burden. Everytime you need to add a new condition, the class with the conditional needs to be edited.
+<br>
+To avoid this problem we need to use polymorphism. Instead of using multiple conditional statements, we create one new class to every condition we need to  verify. Now, instead of verifying ``Class.Type`` , we can verify the ``Class`` itself.
+<br>
+Initially we need to create an abstract class that our classes will extend with all methods and properties we need.
+<br>
+Then we need to create a class to every condition we need to supply. These classes will override our abstract class methods and implement them own.
+<br>
+Now, if we need to add some new condition to verify, we just create a new class that extends the abstract class.
+<br>
+
 
 <hr>
 
