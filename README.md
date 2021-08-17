@@ -28,6 +28,7 @@ book.
   - [Refactoring](#refactoring)
     - [Replacing "magic numbers" with constants](#replacing-magic-numbers-with-constants)
     - [Replacing a conditional expression with polymorphism](#replacing-a-conditional-expression-with-polymorphism)
+    - [Replacing a constructor with a factory method](#replacing-a-constructor-with-a-factory-method)
 
 <hr>
 
@@ -240,15 +241,22 @@ Instead of using numbers without context like ``something / 20``, a better appro
 ### Replacing a conditional expression with polymorphism
 Using conditional expressions like ``if/else`` and ``switch`` is problematic for two reasons: affects readability of code and introduces a maintenance burden. Everytime you need to add a new condition, the class with the conditional needs to be edited.
 <br>
-To avoid this problem we need to use polymorphism. Instead of using multiple conditional statements, we create one new class to every condition we need to  verify. Now, instead of verifying ``Class.Type`` , we can verify the ``Class`` itself.
+To avoid this problem we need to use polymorphism. Instead of using multiple conditional statements, we create one new class to every condition we need to verify. Now, instead of verifying ``Class.Type`` , we can verify the ``Class`` itself.
 <br>
 Initially we need to create an abstract class that our classes will extend with all methods and properties we need.
 <br>
 Then we need to create a class to every condition we need to supply. These classes will override our abstract class methods and implement them own.
 <br>
 Now, if we need to add some new condition to verify, we just create a new class that extends the abstract class.
+
 <br>
 
+### Replacing a constructor with a factory method
+Now that we have replaced the class by a abstract class, it is not possible to instantiate the class anymore. So, how can we create a specific class type? Using a factory method.
+<br>
+Firstly, we need to create an static method that will return the base abstract type inside the abstract class itself. This method receives a type as parameter and, inside it, a ``switch/case`` statement will instantiate a new subclass type depending on what it received on it argument.
+<br>
+The advantages here are: the client doesn't need to instantiate the class anymore. As the factory method is static, it can be called by type rather than on an instance of that type. Second, the return type is the base class, allowing you to hide the subclass account from clients.
 
 <hr>
 
