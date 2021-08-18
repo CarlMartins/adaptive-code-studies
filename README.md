@@ -29,6 +29,7 @@ book.
     - [Replacing "magic numbers" with constants](#replacing-magic-numbers-with-constants)
     - [Replacing a conditional expression with polymorphism](#replacing-a-conditional-expression-with-polymorphism)
     - [Replacing a constructor with a factory method](#replacing-a-constructor-with-a-factory-method)
+    - [Replacing a constructor with a factory class](#replacing-a-constructor-with-a-factory-class)
 
 <hr>
 
@@ -249,14 +250,62 @@ Then we need to create a class to every condition we need to supply. These class
 <br>
 Now, if we need to add some new condition to verify, we just create a new class that extends the abstract class.
 
-<br>
-
 ### Replacing a constructor with a factory method
 Now that we have replaced the class by a abstract class, it is not possible to instantiate the class anymore. So, how can we create a specific class type? Using a factory method.
 <br>
 Firstly, we need to create an static method that will return the base abstract type inside the abstract class itself. This method receives a type as parameter and, inside it, a ``switch/case`` statement will instantiate a new subclass type depending on what it received on it argument.
 <br>
 The advantages here are: the client doesn't need to instantiate the class anymore. As the factory method is static, it can be called by type rather than on an instance of that type. Second, the return type is the base class, allowing you to hide the subclass account from clients.
+
+### Replacing a constructor with a factory class
+There is an alternative to the factory method: the factory class. To implement the factory class, firstly we need to create an interface with the signature of the create method. This interface will be implemented by a concrete factory class. This class will have the conditional that chooses which subclass to instantiate.
+<br>
+Using DI and IoC, the client class will receive as constructor parameter the class that implemented the concrete factory class. This class also needs to have a create method, but instead of instantiate the subclass, it will call the create method of the factory received earlier.
+```c#
+// Factory interface
+ public interface IFactory
+  {
+    AccountBase CreateAccount(AccountType accountType);
+  }
+
+// Concrete factory class that will instantiate the subclasses
+public class ConcreteFactory : IFactory
+  {
+    public SubClassBase CreateSubClass(SubClassType type)
+    {
+      SubClassBase subClass = null;
+      switch (type)
+      {
+        case SubClassType.X:
+          account = new FooClass();
+          break;
+        case SubClassType.Y:
+          account = new BarClass();
+          break;
+        case SubClassType.Z:
+          account = new FooBarClass();
+          break;
+      }
+      return subClass;
+    }
+  }
+
+  // Client
+  public class Client
+  {
+    public Client(IFactory factory)
+    {
+      _factory = factory;
+    }
+    public void CreateSubClass(SubClassType subClassType)
+    {
+      NewAccount = _accountFactory.CreateAccount(subClassType);
+    }
+    private readonly IAccountFactory _factory;
+    private SubClassBase NewAccount;
+  }
+```
+
 
 <hr>
 
