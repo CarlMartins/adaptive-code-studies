@@ -110,7 +110,7 @@ as possible.
   // The null object
   public class NullObject : IInterface
   {
-    public void IncrementSessionTicket()
+    public void SomeMethod()
     {
       // Do nothing
     }
@@ -146,16 +146,13 @@ Every unit test is composed of three distinct parts (following the AAA pattern):
 - The **assert**ion that the expected behavior occurred.
 <br>
   
-When working with TDD (Test-Driven Development), the idea behind is that do not exist any 
-production code, what will cause an inevitable error when running the written tests.
+When working with TDD (Test-Driven Development), the idea behind is that do not exist any production code, what will cause an inevitable error when running the written tests.
 <br>
-Next, you need to <i>implement just enough of the SUT (the class you are testing) so
-that test passes</i>.
+After that, you need to <i>implement just enough of the SUT (the class you are testing) so that test passes</i>.
 <br>
 Finally, you are able to refactor your SUT to pass all the new tests created.
 <br> <br>
-Writing tests before the real implementation and following the described steps, prevents
-over-engineering the solution and also prevents breaking existing functionalities.
+Writing tests before the real implementation and following the described steps, prevents over-engineering the solution and also prevents breaking existing functionalities.
 
 ### More Complex Tests
 When working with real applications, most of the time we well need some external 
@@ -164,8 +161,7 @@ tools like databases, web services or even more logical layers.
 Testing this kind of application can be a little more tricky, and requires more 
 effort when testing.
 <br>
-It's important to notice that depending on external services can make your test be inconsistent
-because, if some of this services is not working properly, your tests neither will.
+It's important to notice that depending on external services can make your test be inconsistent because, if some of this services is not working properly, your tests neither will.
 <br>
 To deal with this problem we can use Test Doubles.
 <br>
@@ -185,7 +181,7 @@ database, we should query this custom repository using an in memory database.
 - **Mocks:** The idea of mocking is mimic the behavior of real objects in a controlled
 way. Instead of calling a database, for example, you can simulate the database operations using a mock 
 object.
-<br><br>
+<br>
   
 Creating mocks can be much harder when testing more complex SUTs, that is a good reason 
 to use **Mock Frameworks** like Moq.
