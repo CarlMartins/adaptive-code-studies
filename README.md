@@ -277,13 +277,13 @@ public class ConcreteFactory : IFactory
       switch (type)
       {
         case SubClassType.X:
-          account = new FooClass();
+          subClass = new FooClass();
           break;
         case SubClassType.Y:
-          account = new BarClass();
+          subClass = new BarClass();
           break;
         case SubClassType.Z:
-          account = new FooBarClass();
+          subClass = new FooBarClass();
           break;
       }
       return subClass;
@@ -299,7 +299,7 @@ public class ConcreteFactory : IFactory
     }
     public void CreateSubClass(SubClassType subClassType)
     {
-      NewAccount = _accountFactory.CreateAccount(subClassType);
+      NewAccount = _factory.CreateAccount(subClassType);
     }
     private readonly IAccountFactory _factory;
     private SubClassBase NewAccount;
