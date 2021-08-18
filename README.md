@@ -37,6 +37,19 @@ book.
 
 ### What is an Interface
 An interface defines the behavior that class has, but not how this behavior is implemented, it means it will have only the signature of the methods, but its logic will be written in the class that implements that interface.
+```c#
+  public interface IInterface
+  {
+    int SomeMethod();
+  }
+
+  // Implementing the interface
+  public class SomeClass : IInterface
+  {
+    public int SomeMethod() 
+    {...}
+  }
+```
 
 ### Polymorphism
 The ability to use an object of one type and have it implicitly act as if it were of a different type is called polymorphism.
@@ -44,6 +57,30 @@ The ability to use an object of one type and have it implicitly act as if it wer
 When a class implements an interface, the client code doesn't need to know the implementation details of that specific class. All it needs is to use their functionalities.
 <br>
 For example, if the classes ``Motorcycle, Boat and Car`` implements a ``IVehicle`` interface, the client code can refer to the ``IVehicle`` interface and treat all concrete types as if they were the same. The implementation of how a boat accelerates compared to a car is irrelevant to the client.
+```c#
+  // Creating the interface
+  public interface IVehicle
+  {
+    void Accelerate();
+  }
+
+  // Implementing the interface
+  public class Boat : IVehicle
+  {
+    public void Accelerate()
+    {...}
+  }
+
+  public class Car : IVehicle
+  {
+    public void Accelerate()
+    {...}
+  }
+
+  // Now we can use both classes with the interface type
+  IVehicle car = new Car();
+  IVehicle boat = new Boat();
+```
 
 ### The Null Object Pattern
 
@@ -57,6 +94,43 @@ subclass that implements the same interface.
 <br>
 All methods implemented by this special subclass should do the closest to nothing
 as possible.
+```c#
+  // The object
+  public class SomeClass : IInterface
+    {
+      public Guid Id { get; set; }
+      public SomeClass(Guid id)
+      {
+          Id = id;
+      }
+      public void SomeMethod()
+      {...}
+    }
+
+  // The null object
+  public class NullObject : IInterface
+  {
+    public void IncrementSessionTicket()
+    {
+      // Do nothing
+    }
+  }
+
+  public class Repository 
+  {
+    public IInterface GetById(Guid id)
+      {
+        IInterface itemFound = _repository.SingleOrDefault(obj => obj.Id == id);
+        // If what you searching for is not found, return the null object
+        if (itemFound == null)
+        {
+            itemFound = new NullObject();
+        }
+
+        return itemFound;
+      }
+  }
+```
 
 ## Tests
 Software quality is not limited to the quality of the code and how adaptive it is to change. It is also a
