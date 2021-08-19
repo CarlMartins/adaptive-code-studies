@@ -168,19 +168,42 @@ To deal with this problem we can use Test Doubles.
 There are five different subcategories of Test Doubles:
 - **Dummies:** The simplest of them. Made just for fulfil some parameters in our
 tests and do not any special behavior.
+```c#
+  public class SomeClass
+  {
+    public void SomeMethodToBeTested(string a, string b)
+    {...}
+  }
+
+  [TestMethod]
+  public void SomeMethodToBeTestedTest()
+  {
+    // Arrange
+    var sut = new SomeClass();
+    
+    // The second argument is the dummy
+    sut.SomeMethodToBeTested("importantValueForTheTest", "notImportantValueForThisTest");
+    
+    ...
+  }
+```
 - **Spies:** A spy records calls that have been made to its method and also
 can be used to ensure that certain call were made.
-- **Stubs:** Stubs are dependencies that are required for testing some piece
-of the code. Instead of depending on the external service, we use use the Stub to return a 
-pre-supplied answer whenever queried. Returns dummy data.
-- **Fakes:** Similar to Stubs, but this one does no return dummy data. Instead,
-it's closer to real production implementation, but using a simplified version of the real implementation 
-and usually taking some shortcut, but needs some data to test. For example, we 
-would need a custom repository class with some data, and instead of querying the real 
-database, we should query this custom repository using an in memory database.
-- **Mocks:** The idea of mocking is mimic the behavior of real objects in a controlled
-way. Instead of calling a database, for example, you can simulate the database operations using a mock 
-object.
+```c#
+
+```
+- **Stubs:** Stubs are dependencies that are required for testing some piece of the code.Instead of depending on the external service, we use use the Stub to return a pre-supplied answer whenever queried. Returns dummy data.
+```c#
+
+```
+- **Fakes:** Similar to Stubs, but this one does no return dummy data. Instead,it's closer to real production implementation, but using a simplified version of the real implementation and usually taking some shortcut, but needs some data to test. For example, we  would need a custom repository class with some data, and instead of querying the real database, we should query this custom repository using an in memory database.
+```c#
+
+```
+- **Mocks:** The idea of mocking is mimic the behavior of real objects in a controlled way. Instead of calling a database, for example, you can simulate the database operations using a mock object.
+```c#
+
+```
 <br>
   
 Creating mocks can be much harder when testing more complex SUTs, that is a good reason 
